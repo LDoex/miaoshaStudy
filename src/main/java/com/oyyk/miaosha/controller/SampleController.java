@@ -2,6 +2,7 @@ package com.oyyk.miaosha.controller;
 
 import com.oyyk.miaosha.domain.User;
 import com.oyyk.miaosha.redis.RedisService;
+import com.oyyk.miaosha.redis.UserKey;
 import com.oyyk.miaosha.result.Result;
 import com.oyyk.miaosha.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,15 +49,18 @@ public class SampleController {
 
     @RequestMapping("/redis/get")
     @ResponseBody
-    public Result<Long> redisGet() {
-        Long v1 = redisService.get("key1", Long.class);
-        return Result.success(v1);
+    public Result<User> redisGet() {
+        User user = redisService.get(UserKey.getById,""+1, User.class);
+        return Result.success(user);
     }
     @RequestMapping("/redis/set")
     @ResponseBody
-    public Result<String> redisSet() {
-        boolean v1 = redisService.set("key2", "hello,imooc");
-        String str = redisService.get("key2", String.class);
-        return Result.success(str);
+    public Result<Boolean> redisSet() {
+        User user = new User();
+        user.setId(1);
+        user.setName("1111");
+        redisService.set(UserKey.getById,""+1, user);
+
+        return Result.success(true);
     }
 }
