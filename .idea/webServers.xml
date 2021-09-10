@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fad631e0-a9e3-4785-a14b-505d76269f59" name="Redis">
+        <fileTransfer accessType="SFTP" host="108.61.86.66" port="22" sshConfigId="07767d3b-636a-43b7-a1ca-57096d890804" sshConfig="root@108.61.86.66:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
